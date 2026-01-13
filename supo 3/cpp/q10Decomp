@@ -1,0 +1,535 @@
+
+./q10:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000001000 <_init>:
+    1000:	f3 0f 1e fa          	endbr64
+    1004:	48 83 ec 08          	sub    $0x8,%rsp
+    1008:	48 8b 05 e1 2f 00 00 	mov    0x2fe1(%rip),%rax        # 3ff0 <__gmon_start__@Base>
+    100f:	48 85 c0             	test   %rax,%rax
+    1012:	74 02                	je     1016 <_init+0x16>
+    1014:	ff d0                	call   *%rax
+    1016:	48 83 c4 08          	add    $0x8,%rsp
+    101a:	c3                   	ret
+
+Disassembly of section .plt:
+
+0000000000001020 <.plt>:
+    1020:	ff 35 8a 2f 00 00    	push   0x2f8a(%rip)        # 3fb0 <_GLOBAL_OFFSET_TABLE_+0x8>
+    1026:	ff 25 8c 2f 00 00    	jmp    *0x2f8c(%rip)        # 3fb8 <_GLOBAL_OFFSET_TABLE_+0x10>
+    102c:	0f 1f 40 00          	nopl   0x0(%rax)
+    1030:	f3 0f 1e fa          	endbr64
+    1034:	68 00 00 00 00       	push   $0x0
+    1039:	e9 e2 ff ff ff       	jmp    1020 <_init+0x20>
+    103e:	66 90                	xchg   %ax,%ax
+    1040:	f3 0f 1e fa          	endbr64
+    1044:	68 01 00 00 00       	push   $0x1
+    1049:	e9 d2 ff ff ff       	jmp    1020 <_init+0x20>
+    104e:	66 90                	xchg   %ax,%ax
+    1050:	f3 0f 1e fa          	endbr64
+    1054:	68 02 00 00 00       	push   $0x2
+    1059:	e9 c2 ff ff ff       	jmp    1020 <_init+0x20>
+    105e:	66 90                	xchg   %ax,%ax
+
+Disassembly of section .plt.got:
+
+0000000000001060 <__cxa_finalize@plt>:
+    1060:	f3 0f 1e fa          	endbr64
+    1064:	ff 25 6e 2f 00 00    	jmp    *0x2f6e(%rip)        # 3fd8 <__cxa_finalize@GLIBC_2.2.5>
+    106a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+Disassembly of section .plt.sec:
+
+0000000000001070 <clock@plt>:
+    1070:	f3 0f 1e fa          	endbr64
+    1074:	ff 25 46 2f 00 00    	jmp    *0x2f46(%rip)        # 3fc0 <clock@GLIBC_2.2.5>
+    107a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+0000000000001080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>:
+    1080:	f3 0f 1e fa          	endbr64
+    1084:	ff 25 3e 2f 00 00    	jmp    *0x2f3e(%rip)        # 3fc8 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@GLIBCXX_3.4>
+    108a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+0000000000001090 <_ZNSolsEd@plt>:
+    1090:	f3 0f 1e fa          	endbr64
+    1094:	ff 25 36 2f 00 00    	jmp    *0x2f36(%rip)        # 3fd0 <_ZNSolsEd@GLIBCXX_3.4>
+    109a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+Disassembly of section .text:
+
+00000000000010a0 <_start>:
+    10a0:	f3 0f 1e fa          	endbr64
+    10a4:	31 ed                	xor    %ebp,%ebp
+    10a6:	49 89 d1             	mov    %rdx,%r9
+    10a9:	5e                   	pop    %rsi
+    10aa:	48 89 e2             	mov    %rsp,%rdx
+    10ad:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+    10b1:	50                   	push   %rax
+    10b2:	54                   	push   %rsp
+    10b3:	45 31 c0             	xor    %r8d,%r8d
+    10b6:	31 c9                	xor    %ecx,%ecx
+    10b8:	48 8d 3d ca 00 00 00 	lea    0xca(%rip),%rdi        # 1189 <main>
+    10bf:	ff 15 1b 2f 00 00    	call   *0x2f1b(%rip)        # 3fe0 <__libc_start_main@GLIBC_2.34>
+    10c5:	f4                   	hlt
+    10c6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    10cd:	00 00 00 
+
+00000000000010d0 <deregister_tm_clones>:
+    10d0:	48 8d 3d 39 2f 00 00 	lea    0x2f39(%rip),%rdi        # 4010 <__TMC_END__>
+    10d7:	48 8d 05 32 2f 00 00 	lea    0x2f32(%rip),%rax        # 4010 <__TMC_END__>
+    10de:	48 39 f8             	cmp    %rdi,%rax
+    10e1:	74 15                	je     10f8 <deregister_tm_clones+0x28>
+    10e3:	48 8b 05 fe 2e 00 00 	mov    0x2efe(%rip),%rax        # 3fe8 <_ITM_deregisterTMCloneTable@Base>
+    10ea:	48 85 c0             	test   %rax,%rax
+    10ed:	74 09                	je     10f8 <deregister_tm_clones+0x28>
+    10ef:	ff e0                	jmp    *%rax
+    10f1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    10f8:	c3                   	ret
+    10f9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001100 <register_tm_clones>:
+    1100:	48 8d 3d 09 2f 00 00 	lea    0x2f09(%rip),%rdi        # 4010 <__TMC_END__>
+    1107:	48 8d 35 02 2f 00 00 	lea    0x2f02(%rip),%rsi        # 4010 <__TMC_END__>
+    110e:	48 29 fe             	sub    %rdi,%rsi
+    1111:	48 89 f0             	mov    %rsi,%rax
+    1114:	48 c1 ee 3f          	shr    $0x3f,%rsi
+    1118:	48 c1 f8 03          	sar    $0x3,%rax
+    111c:	48 01 c6             	add    %rax,%rsi
+    111f:	48 d1 fe             	sar    $1,%rsi
+    1122:	74 14                	je     1138 <register_tm_clones+0x38>
+    1124:	48 8b 05 cd 2e 00 00 	mov    0x2ecd(%rip),%rax        # 3ff8 <_ITM_registerTMCloneTable@Base>
+    112b:	48 85 c0             	test   %rax,%rax
+    112e:	74 08                	je     1138 <register_tm_clones+0x38>
+    1130:	ff e0                	jmp    *%rax
+    1132:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    1138:	c3                   	ret
+    1139:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001140 <__do_global_dtors_aux>:
+    1140:	f3 0f 1e fa          	endbr64
+    1144:	80 3d 05 30 00 00 00 	cmpb   $0x0,0x3005(%rip)        # 4150 <completed.0>
+    114b:	75 2b                	jne    1178 <__do_global_dtors_aux+0x38>
+    114d:	55                   	push   %rbp
+    114e:	48 83 3d 82 2e 00 00 	cmpq   $0x0,0x2e82(%rip)        # 3fd8 <__cxa_finalize@GLIBC_2.2.5>
+    1155:	00 
+    1156:	48 89 e5             	mov    %rsp,%rbp
+    1159:	74 0c                	je     1167 <__do_global_dtors_aux+0x27>
+    115b:	48 8b 3d a6 2e 00 00 	mov    0x2ea6(%rip),%rdi        # 4008 <__dso_handle>
+    1162:	e8 f9 fe ff ff       	call   1060 <__cxa_finalize@plt>
+    1167:	e8 64 ff ff ff       	call   10d0 <deregister_tm_clones>
+    116c:	c6 05 dd 2f 00 00 01 	movb   $0x1,0x2fdd(%rip)        # 4150 <completed.0>
+    1173:	5d                   	pop    %rbp
+    1174:	c3                   	ret
+    1175:	0f 1f 00             	nopl   (%rax)
+    1178:	c3                   	ret
+    1179:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001180 <frame_dummy>:
+    1180:	f3 0f 1e fa          	endbr64
+    1184:	e9 77 ff ff ff       	jmp    1100 <register_tm_clones>
+
+0000000000001189 <main>:
+    1189:	f3 0f 1e fa          	endbr64
+    118d:	55                   	push   %rbp
+    118e:	48 89 e5             	mov    %rsp,%rbp
+    1191:	48 83 ec 20          	sub    $0x20,%rsp
+    1195:	e8 d6 fe ff ff       	call   1070 <clock@plt>
+    119a:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+    119e:	48 8d 05 63 0e 00 00 	lea    0xe63(%rip),%rax        # 2008 <_IO_stdin_used+0x8>
+    11a5:	48 89 c6             	mov    %rax,%rsi
+    11a8:	48 8d 05 91 2e 00 00 	lea    0x2e91(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    11af:	48 89 c7             	mov    %rax,%rdi
+    11b2:	e8 c9 fe ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    11b7:	48 89 c2             	mov    %rax,%rdx
+    11ba:	48 8d 05 51 0e 00 00 	lea    0xe51(%rip),%rax        # 2012 <_IO_stdin_used+0x12>
+    11c1:	48 89 c6             	mov    %rax,%rsi
+    11c4:	48 89 d7             	mov    %rdx,%rdi
+    11c7:	e8 b4 fe ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    11cc:	48 89 c2             	mov    %rax,%rdx
+    11cf:	48 8d 05 3f 0e 00 00 	lea    0xe3f(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    11d6:	48 89 c6             	mov    %rax,%rsi
+    11d9:	48 89 d7             	mov    %rdx,%rdi
+    11dc:	e8 9f fe ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    11e1:	48 8d 05 2f 0e 00 00 	lea    0xe2f(%rip),%rax        # 2017 <_IO_stdin_used+0x17>
+    11e8:	48 89 c6             	mov    %rax,%rsi
+    11eb:	48 8d 05 4e 2e 00 00 	lea    0x2e4e(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    11f2:	48 89 c7             	mov    %rax,%rdi
+    11f5:	e8 86 fe ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    11fa:	48 89 c2             	mov    %rax,%rdx
+    11fd:	48 8d 05 0e 0e 00 00 	lea    0xe0e(%rip),%rax        # 2012 <_IO_stdin_used+0x12>
+    1204:	48 89 c6             	mov    %rax,%rsi
+    1207:	48 89 d7             	mov    %rdx,%rdi
+    120a:	e8 71 fe ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    120f:	48 89 c2             	mov    %rax,%rdx
+    1212:	48 8d 05 fc 0d 00 00 	lea    0xdfc(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    1219:	48 89 c6             	mov    %rax,%rsi
+    121c:	48 89 d7             	mov    %rdx,%rdi
+    121f:	e8 5c fe ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1224:	48 8d 05 f6 0d 00 00 	lea    0xdf6(%rip),%rax        # 2021 <_IO_stdin_used+0x21>
+    122b:	48 89 c6             	mov    %rax,%rsi
+    122e:	48 8d 05 0b 2e 00 00 	lea    0x2e0b(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    1235:	48 89 c7             	mov    %rax,%rdi
+    1238:	e8 43 fe ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    123d:	48 89 c2             	mov    %rax,%rdx
+    1240:	48 8d 05 e4 0d 00 00 	lea    0xde4(%rip),%rax        # 202b <_IO_stdin_used+0x2b>
+    1247:	48 89 c6             	mov    %rax,%rsi
+    124a:	48 89 d7             	mov    %rdx,%rdi
+    124d:	e8 2e fe ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1252:	48 89 c2             	mov    %rax,%rdx
+    1255:	48 8d 05 b9 0d 00 00 	lea    0xdb9(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    125c:	48 89 c6             	mov    %rax,%rsi
+    125f:	48 89 d7             	mov    %rdx,%rdi
+    1262:	e8 19 fe ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1267:	48 8d 05 c1 0d 00 00 	lea    0xdc1(%rip),%rax        # 202f <_IO_stdin_used+0x2f>
+    126e:	48 89 c6             	mov    %rax,%rsi
+    1271:	48 8d 05 c8 2d 00 00 	lea    0x2dc8(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    1278:	48 89 c7             	mov    %rax,%rdi
+    127b:	e8 00 fe ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1280:	48 89 c2             	mov    %rax,%rdx
+    1283:	48 8d 05 a1 0d 00 00 	lea    0xda1(%rip),%rax        # 202b <_IO_stdin_used+0x2b>
+    128a:	48 89 c6             	mov    %rax,%rsi
+    128d:	48 89 d7             	mov    %rdx,%rdi
+    1290:	e8 eb fd ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1295:	48 89 c2             	mov    %rax,%rdx
+    1298:	48 8d 05 76 0d 00 00 	lea    0xd76(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    129f:	48 89 c6             	mov    %rax,%rsi
+    12a2:	48 89 d7             	mov    %rdx,%rdi
+    12a5:	e8 d6 fd ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    12aa:	48 8d 05 88 0d 00 00 	lea    0xd88(%rip),%rax        # 2039 <_IO_stdin_used+0x39>
+    12b1:	48 89 c6             	mov    %rax,%rsi
+    12b4:	48 8d 05 85 2d 00 00 	lea    0x2d85(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    12bb:	48 89 c7             	mov    %rax,%rdi
+    12be:	e8 bd fd ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    12c3:	48 89 c2             	mov    %rax,%rdx
+    12c6:	48 8d 05 45 0d 00 00 	lea    0xd45(%rip),%rax        # 2012 <_IO_stdin_used+0x12>
+    12cd:	48 89 c6             	mov    %rax,%rsi
+    12d0:	48 89 d7             	mov    %rdx,%rdi
+    12d3:	e8 a8 fd ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    12d8:	48 89 c2             	mov    %rax,%rdx
+    12db:	48 8d 05 33 0d 00 00 	lea    0xd33(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    12e2:	48 89 c6             	mov    %rax,%rsi
+    12e5:	48 89 d7             	mov    %rdx,%rdi
+    12e8:	e8 93 fd ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    12ed:	48 8d 05 4f 0d 00 00 	lea    0xd4f(%rip),%rax        # 2043 <_IO_stdin_used+0x43>
+    12f4:	48 89 c6             	mov    %rax,%rsi
+    12f7:	48 8d 05 42 2d 00 00 	lea    0x2d42(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    12fe:	48 89 c7             	mov    %rax,%rdi
+    1301:	e8 7a fd ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1306:	48 89 c2             	mov    %rax,%rdx
+    1309:	48 8d 05 1b 0d 00 00 	lea    0xd1b(%rip),%rax        # 202b <_IO_stdin_used+0x2b>
+    1310:	48 89 c6             	mov    %rax,%rsi
+    1313:	48 89 d7             	mov    %rdx,%rdi
+    1316:	e8 65 fd ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    131b:	48 89 c2             	mov    %rax,%rdx
+    131e:	48 8d 05 f0 0c 00 00 	lea    0xcf0(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    1325:	48 89 c6             	mov    %rax,%rsi
+    1328:	48 89 d7             	mov    %rdx,%rdi
+    132b:	e8 50 fd ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1330:	48 8d 05 16 0d 00 00 	lea    0xd16(%rip),%rax        # 204d <_IO_stdin_used+0x4d>
+    1337:	48 89 c6             	mov    %rax,%rsi
+    133a:	48 8d 05 ff 2c 00 00 	lea    0x2cff(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    1341:	48 89 c7             	mov    %rax,%rdi
+    1344:	e8 37 fd ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1349:	48 89 c2             	mov    %rax,%rdx
+    134c:	48 8d 05 bf 0c 00 00 	lea    0xcbf(%rip),%rax        # 2012 <_IO_stdin_used+0x12>
+    1353:	48 89 c6             	mov    %rax,%rsi
+    1356:	48 89 d7             	mov    %rdx,%rdi
+    1359:	e8 22 fd ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    135e:	48 89 c2             	mov    %rax,%rdx
+    1361:	48 8d 05 ad 0c 00 00 	lea    0xcad(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    1368:	48 89 c6             	mov    %rax,%rsi
+    136b:	48 89 d7             	mov    %rdx,%rdi
+    136e:	e8 0d fd ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1373:	48 8d 05 dd 0c 00 00 	lea    0xcdd(%rip),%rax        # 2057 <_IO_stdin_used+0x57>
+    137a:	48 89 c6             	mov    %rax,%rsi
+    137d:	48 8d 05 bc 2c 00 00 	lea    0x2cbc(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    1384:	48 89 c7             	mov    %rax,%rdi
+    1387:	e8 f4 fc ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    138c:	48 89 c2             	mov    %rax,%rdx
+    138f:	48 8d 05 95 0c 00 00 	lea    0xc95(%rip),%rax        # 202b <_IO_stdin_used+0x2b>
+    1396:	48 89 c6             	mov    %rax,%rsi
+    1399:	48 89 d7             	mov    %rdx,%rdi
+    139c:	e8 df fc ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    13a1:	48 89 c2             	mov    %rax,%rdx
+    13a4:	48 8d 05 6a 0c 00 00 	lea    0xc6a(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    13ab:	48 89 c6             	mov    %rax,%rsi
+    13ae:	48 89 d7             	mov    %rdx,%rdi
+    13b1:	e8 ca fc ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    13b6:	48 8d 05 a4 0c 00 00 	lea    0xca4(%rip),%rax        # 2061 <_IO_stdin_used+0x61>
+    13bd:	48 89 c6             	mov    %rax,%rsi
+    13c0:	48 8d 05 79 2c 00 00 	lea    0x2c79(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    13c7:	48 89 c7             	mov    %rax,%rdi
+    13ca:	e8 b1 fc ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    13cf:	48 89 c2             	mov    %rax,%rdx
+    13d2:	48 8d 05 39 0c 00 00 	lea    0xc39(%rip),%rax        # 2012 <_IO_stdin_used+0x12>
+    13d9:	48 89 c6             	mov    %rax,%rsi
+    13dc:	48 89 d7             	mov    %rdx,%rdi
+    13df:	e8 9c fc ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    13e4:	48 89 c2             	mov    %rax,%rdx
+    13e7:	48 8d 05 27 0c 00 00 	lea    0xc27(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    13ee:	48 89 c6             	mov    %rax,%rsi
+    13f1:	48 89 d7             	mov    %rdx,%rdi
+    13f4:	e8 87 fc ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    13f9:	48 8d 05 6b 0c 00 00 	lea    0xc6b(%rip),%rax        # 206b <_IO_stdin_used+0x6b>
+    1400:	48 89 c6             	mov    %rax,%rsi
+    1403:	48 8d 05 36 2c 00 00 	lea    0x2c36(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    140a:	48 89 c7             	mov    %rax,%rdi
+    140d:	e8 6e fc ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1412:	48 89 c2             	mov    %rax,%rdx
+    1415:	48 8d 05 f6 0b 00 00 	lea    0xbf6(%rip),%rax        # 2012 <_IO_stdin_used+0x12>
+    141c:	48 89 c6             	mov    %rax,%rsi
+    141f:	48 89 d7             	mov    %rdx,%rdi
+    1422:	e8 59 fc ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1427:	48 89 c2             	mov    %rax,%rdx
+    142a:	48 8d 05 e4 0b 00 00 	lea    0xbe4(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    1431:	48 89 c6             	mov    %rax,%rsi
+    1434:	48 89 d7             	mov    %rdx,%rdi
+    1437:	e8 44 fc ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    143c:	48 8d 05 32 0c 00 00 	lea    0xc32(%rip),%rax        # 2075 <_IO_stdin_used+0x75>
+    1443:	48 89 c6             	mov    %rax,%rsi
+    1446:	48 8d 05 f3 2b 00 00 	lea    0x2bf3(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    144d:	48 89 c7             	mov    %rax,%rdi
+    1450:	e8 2b fc ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1455:	48 89 c2             	mov    %rax,%rdx
+    1458:	48 8d 05 b3 0b 00 00 	lea    0xbb3(%rip),%rax        # 2012 <_IO_stdin_used+0x12>
+    145f:	48 89 c6             	mov    %rax,%rsi
+    1462:	48 89 d7             	mov    %rdx,%rdi
+    1465:	e8 16 fc ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    146a:	48 89 c2             	mov    %rax,%rdx
+    146d:	48 8d 05 a1 0b 00 00 	lea    0xba1(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    1474:	48 89 c6             	mov    %rax,%rsi
+    1477:	48 89 d7             	mov    %rdx,%rdi
+    147a:	e8 01 fc ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    147f:	48 8d 05 fa 0b 00 00 	lea    0xbfa(%rip),%rax        # 2080 <_IO_stdin_used+0x80>
+    1486:	48 89 c6             	mov    %rax,%rsi
+    1489:	48 8d 05 b0 2b 00 00 	lea    0x2bb0(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    1490:	48 89 c7             	mov    %rax,%rdi
+    1493:	e8 e8 fb ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1498:	48 89 c2             	mov    %rax,%rdx
+    149b:	48 8d 05 89 0b 00 00 	lea    0xb89(%rip),%rax        # 202b <_IO_stdin_used+0x2b>
+    14a2:	48 89 c6             	mov    %rax,%rsi
+    14a5:	48 89 d7             	mov    %rdx,%rdi
+    14a8:	e8 d3 fb ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    14ad:	48 89 c2             	mov    %rax,%rdx
+    14b0:	48 8d 05 5e 0b 00 00 	lea    0xb5e(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    14b7:	48 89 c6             	mov    %rax,%rsi
+    14ba:	48 89 d7             	mov    %rdx,%rdi
+    14bd:	e8 be fb ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    14c2:	48 8d 05 c2 0b 00 00 	lea    0xbc2(%rip),%rax        # 208b <_IO_stdin_used+0x8b>
+    14c9:	48 89 c6             	mov    %rax,%rsi
+    14cc:	48 8d 05 6d 2b 00 00 	lea    0x2b6d(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    14d3:	48 89 c7             	mov    %rax,%rdi
+    14d6:	e8 a5 fb ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    14db:	48 89 c2             	mov    %rax,%rdx
+    14de:	48 8d 05 2d 0b 00 00 	lea    0xb2d(%rip),%rax        # 2012 <_IO_stdin_used+0x12>
+    14e5:	48 89 c6             	mov    %rax,%rsi
+    14e8:	48 89 d7             	mov    %rdx,%rdi
+    14eb:	e8 90 fb ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    14f0:	48 89 c2             	mov    %rax,%rdx
+    14f3:	48 8d 05 1b 0b 00 00 	lea    0xb1b(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    14fa:	48 89 c6             	mov    %rax,%rsi
+    14fd:	48 89 d7             	mov    %rdx,%rdi
+    1500:	e8 7b fb ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1505:	48 8d 05 8a 0b 00 00 	lea    0xb8a(%rip),%rax        # 2096 <_IO_stdin_used+0x96>
+    150c:	48 89 c6             	mov    %rax,%rsi
+    150f:	48 8d 05 2a 2b 00 00 	lea    0x2b2a(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    1516:	48 89 c7             	mov    %rax,%rdi
+    1519:	e8 62 fb ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    151e:	48 89 c2             	mov    %rax,%rdx
+    1521:	48 8d 05 03 0b 00 00 	lea    0xb03(%rip),%rax        # 202b <_IO_stdin_used+0x2b>
+    1528:	48 89 c6             	mov    %rax,%rsi
+    152b:	48 89 d7             	mov    %rdx,%rdi
+    152e:	e8 4d fb ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1533:	48 89 c2             	mov    %rax,%rdx
+    1536:	48 8d 05 d8 0a 00 00 	lea    0xad8(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    153d:	48 89 c6             	mov    %rax,%rsi
+    1540:	48 89 d7             	mov    %rdx,%rdi
+    1543:	e8 38 fb ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1548:	48 8d 05 52 0b 00 00 	lea    0xb52(%rip),%rax        # 20a1 <_IO_stdin_used+0xa1>
+    154f:	48 89 c6             	mov    %rax,%rsi
+    1552:	48 8d 05 e7 2a 00 00 	lea    0x2ae7(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    1559:	48 89 c7             	mov    %rax,%rdi
+    155c:	e8 1f fb ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1561:	48 89 c2             	mov    %rax,%rdx
+    1564:	48 8d 05 a7 0a 00 00 	lea    0xaa7(%rip),%rax        # 2012 <_IO_stdin_used+0x12>
+    156b:	48 89 c6             	mov    %rax,%rsi
+    156e:	48 89 d7             	mov    %rdx,%rdi
+    1571:	e8 0a fb ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1576:	48 89 c2             	mov    %rax,%rdx
+    1579:	48 8d 05 95 0a 00 00 	lea    0xa95(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    1580:	48 89 c6             	mov    %rax,%rsi
+    1583:	48 89 d7             	mov    %rdx,%rdi
+    1586:	e8 f5 fa ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    158b:	48 8d 05 1a 0b 00 00 	lea    0xb1a(%rip),%rax        # 20ac <_IO_stdin_used+0xac>
+    1592:	48 89 c6             	mov    %rax,%rsi
+    1595:	48 8d 05 a4 2a 00 00 	lea    0x2aa4(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    159c:	48 89 c7             	mov    %rax,%rdi
+    159f:	e8 dc fa ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    15a4:	48 89 c2             	mov    %rax,%rdx
+    15a7:	48 8d 05 64 0a 00 00 	lea    0xa64(%rip),%rax        # 2012 <_IO_stdin_used+0x12>
+    15ae:	48 89 c6             	mov    %rax,%rsi
+    15b1:	48 89 d7             	mov    %rdx,%rdi
+    15b4:	e8 c7 fa ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    15b9:	48 89 c2             	mov    %rax,%rdx
+    15bc:	48 8d 05 52 0a 00 00 	lea    0xa52(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    15c3:	48 89 c6             	mov    %rax,%rsi
+    15c6:	48 89 d7             	mov    %rdx,%rdi
+    15c9:	e8 b2 fa ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    15ce:	48 8d 05 e2 0a 00 00 	lea    0xae2(%rip),%rax        # 20b7 <_IO_stdin_used+0xb7>
+    15d5:	48 89 c6             	mov    %rax,%rsi
+    15d8:	48 8d 05 61 2a 00 00 	lea    0x2a61(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    15df:	48 89 c7             	mov    %rax,%rdi
+    15e2:	e8 99 fa ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    15e7:	48 89 c2             	mov    %rax,%rdx
+    15ea:	48 8d 05 21 0a 00 00 	lea    0xa21(%rip),%rax        # 2012 <_IO_stdin_used+0x12>
+    15f1:	48 89 c6             	mov    %rax,%rsi
+    15f4:	48 89 d7             	mov    %rdx,%rdi
+    15f7:	e8 84 fa ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    15fc:	48 89 c2             	mov    %rax,%rdx
+    15ff:	48 8d 05 0f 0a 00 00 	lea    0xa0f(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    1606:	48 89 c6             	mov    %rax,%rsi
+    1609:	48 89 d7             	mov    %rdx,%rdi
+    160c:	e8 6f fa ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1611:	48 8d 05 aa 0a 00 00 	lea    0xaaa(%rip),%rax        # 20c2 <_IO_stdin_used+0xc2>
+    1618:	48 89 c6             	mov    %rax,%rsi
+    161b:	48 8d 05 1e 2a 00 00 	lea    0x2a1e(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    1622:	48 89 c7             	mov    %rax,%rdi
+    1625:	e8 56 fa ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    162a:	48 89 c2             	mov    %rax,%rdx
+    162d:	48 8d 05 f7 09 00 00 	lea    0x9f7(%rip),%rax        # 202b <_IO_stdin_used+0x2b>
+    1634:	48 89 c6             	mov    %rax,%rsi
+    1637:	48 89 d7             	mov    %rdx,%rdi
+    163a:	e8 41 fa ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    163f:	48 89 c2             	mov    %rax,%rdx
+    1642:	48 8d 05 cc 09 00 00 	lea    0x9cc(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    1649:	48 89 c6             	mov    %rax,%rsi
+    164c:	48 89 d7             	mov    %rdx,%rdi
+    164f:	e8 2c fa ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1654:	48 8d 05 72 0a 00 00 	lea    0xa72(%rip),%rax        # 20cd <_IO_stdin_used+0xcd>
+    165b:	48 89 c6             	mov    %rax,%rsi
+    165e:	48 8d 05 db 29 00 00 	lea    0x29db(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    1665:	48 89 c7             	mov    %rax,%rdi
+    1668:	e8 13 fa ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    166d:	48 89 c2             	mov    %rax,%rdx
+    1670:	48 8d 05 9b 09 00 00 	lea    0x99b(%rip),%rax        # 2012 <_IO_stdin_used+0x12>
+    1677:	48 89 c6             	mov    %rax,%rsi
+    167a:	48 89 d7             	mov    %rdx,%rdi
+    167d:	e8 fe f9 ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1682:	48 89 c2             	mov    %rax,%rdx
+    1685:	48 8d 05 89 09 00 00 	lea    0x989(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    168c:	48 89 c6             	mov    %rax,%rsi
+    168f:	48 89 d7             	mov    %rdx,%rdi
+    1692:	e8 e9 f9 ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1697:	48 8d 05 3a 0a 00 00 	lea    0xa3a(%rip),%rax        # 20d8 <_IO_stdin_used+0xd8>
+    169e:	48 89 c6             	mov    %rax,%rsi
+    16a1:	48 8d 05 98 29 00 00 	lea    0x2998(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    16a8:	48 89 c7             	mov    %rax,%rdi
+    16ab:	e8 d0 f9 ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    16b0:	48 89 c2             	mov    %rax,%rdx
+    16b3:	48 8d 05 71 09 00 00 	lea    0x971(%rip),%rax        # 202b <_IO_stdin_used+0x2b>
+    16ba:	48 89 c6             	mov    %rax,%rsi
+    16bd:	48 89 d7             	mov    %rdx,%rdi
+    16c0:	e8 bb f9 ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    16c5:	48 89 c2             	mov    %rax,%rdx
+    16c8:	48 8d 05 46 09 00 00 	lea    0x946(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    16cf:	48 89 c6             	mov    %rax,%rsi
+    16d2:	48 89 d7             	mov    %rdx,%rdi
+    16d5:	e8 a6 f9 ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    16da:	48 8d 05 02 0a 00 00 	lea    0xa02(%rip),%rax        # 20e3 <_IO_stdin_used+0xe3>
+    16e1:	48 89 c6             	mov    %rax,%rsi
+    16e4:	48 8d 05 55 29 00 00 	lea    0x2955(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    16eb:	48 89 c7             	mov    %rax,%rdi
+    16ee:	e8 8d f9 ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    16f3:	48 89 c2             	mov    %rax,%rdx
+    16f6:	48 8d 05 15 09 00 00 	lea    0x915(%rip),%rax        # 2012 <_IO_stdin_used+0x12>
+    16fd:	48 89 c6             	mov    %rax,%rsi
+    1700:	48 89 d7             	mov    %rdx,%rdi
+    1703:	e8 78 f9 ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1708:	48 89 c2             	mov    %rax,%rdx
+    170b:	48 8d 05 03 09 00 00 	lea    0x903(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    1712:	48 89 c6             	mov    %rax,%rsi
+    1715:	48 89 d7             	mov    %rdx,%rdi
+    1718:	e8 63 f9 ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    171d:	48 8d 05 ca 09 00 00 	lea    0x9ca(%rip),%rax        # 20ee <_IO_stdin_used+0xee>
+    1724:	48 89 c6             	mov    %rax,%rsi
+    1727:	48 8d 05 12 29 00 00 	lea    0x2912(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    172e:	48 89 c7             	mov    %rax,%rdi
+    1731:	e8 4a f9 ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1736:	48 89 c2             	mov    %rax,%rdx
+    1739:	48 8d 05 eb 08 00 00 	lea    0x8eb(%rip),%rax        # 202b <_IO_stdin_used+0x2b>
+    1740:	48 89 c6             	mov    %rax,%rsi
+    1743:	48 89 d7             	mov    %rdx,%rdi
+    1746:	e8 35 f9 ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    174b:	48 89 c2             	mov    %rax,%rdx
+    174e:	48 8d 05 c0 08 00 00 	lea    0x8c0(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    1755:	48 89 c6             	mov    %rax,%rsi
+    1758:	48 89 d7             	mov    %rdx,%rdi
+    175b:	e8 20 f9 ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1760:	48 8d 05 94 09 00 00 	lea    0x994(%rip),%rax        # 20fb <_IO_stdin_used+0xfb>
+    1767:	48 89 c6             	mov    %rax,%rsi
+    176a:	48 8d 05 cf 28 00 00 	lea    0x28cf(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    1771:	48 89 c7             	mov    %rax,%rdi
+    1774:	e8 07 f9 ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1779:	48 89 c2             	mov    %rax,%rdx
+    177c:	48 8d 05 a8 08 00 00 	lea    0x8a8(%rip),%rax        # 202b <_IO_stdin_used+0x2b>
+    1783:	48 89 c6             	mov    %rax,%rsi
+    1786:	48 89 d7             	mov    %rdx,%rdi
+    1789:	e8 f2 f8 ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    178e:	48 89 c2             	mov    %rax,%rdx
+    1791:	48 8d 05 7d 08 00 00 	lea    0x87d(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    1798:	48 89 c6             	mov    %rax,%rsi
+    179b:	48 89 d7             	mov    %rdx,%rdi
+    179e:	e8 dd f8 ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    17a3:	48 8d 05 5f 09 00 00 	lea    0x95f(%rip),%rax        # 2109 <_IO_stdin_used+0x109>
+    17aa:	48 89 c6             	mov    %rax,%rsi
+    17ad:	48 8d 05 8c 28 00 00 	lea    0x288c(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    17b4:	48 89 c7             	mov    %rax,%rdi
+    17b7:	e8 c4 f8 ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    17bc:	48 89 c2             	mov    %rax,%rdx
+    17bf:	48 8d 05 65 08 00 00 	lea    0x865(%rip),%rax        # 202b <_IO_stdin_used+0x2b>
+    17c6:	48 89 c6             	mov    %rax,%rsi
+    17c9:	48 89 d7             	mov    %rdx,%rdi
+    17cc:	e8 af f8 ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    17d1:	48 89 c2             	mov    %rax,%rdx
+    17d4:	48 8d 05 3a 08 00 00 	lea    0x83a(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    17db:	48 89 c6             	mov    %rax,%rsi
+    17de:	48 89 d7             	mov    %rdx,%rdi
+    17e1:	e8 9a f8 ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    17e6:	e8 85 f8 ff ff       	call   1070 <clock@plt>
+    17eb:	48 89 45 f0          	mov    %rax,-0x10(%rbp)
+    17ef:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    17f3:	48 2b 45 e8          	sub    -0x18(%rbp),%rax
+    17f7:	66 0f ef c0          	pxor   %xmm0,%xmm0
+    17fb:	f2 48 0f 2a c0       	cvtsi2sd %rax,%xmm0
+    1800:	f2 0f 10 0d 20 09 00 	movsd  0x920(%rip),%xmm1        # 2128 <_ZNSt8__detail30__integer_to_chars_is_unsignedIyEE+0x2>
+    1807:	00 
+    1808:	f2 0f 5e c1          	divsd  %xmm1,%xmm0
+    180c:	f2 0f 11 45 f8       	movsd  %xmm0,-0x8(%rbp)
+    1811:	48 8d 05 ff 08 00 00 	lea    0x8ff(%rip),%rax        # 2117 <_IO_stdin_used+0x117>
+    1818:	48 89 c6             	mov    %rax,%rsi
+    181b:	48 8d 05 1e 28 00 00 	lea    0x281e(%rip),%rax        # 4040 <_ZSt4cout@GLIBCXX_3.4>
+    1822:	48 89 c7             	mov    %rax,%rdi
+    1825:	e8 56 f8 ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    182a:	48 89 c2             	mov    %rax,%rdx
+    182d:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    1831:	66 48 0f 6e c0       	movq   %rax,%xmm0
+    1836:	48 89 d7             	mov    %rdx,%rdi
+    1839:	e8 52 f8 ff ff       	call   1090 <_ZNSolsEd@plt>
+    183e:	48 89 c2             	mov    %rax,%rdx
+    1841:	48 8d 05 cd 07 00 00 	lea    0x7cd(%rip),%rax        # 2015 <_IO_stdin_used+0x15>
+    1848:	48 89 c6             	mov    %rax,%rsi
+    184b:	48 89 d7             	mov    %rdx,%rdi
+    184e:	e8 2d f8 ff ff       	call   1080 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+    1853:	b8 00 00 00 00       	mov    $0x0,%eax
+    1858:	c9                   	leave
+    1859:	c3                   	ret
+
+Disassembly of section .fini:
+
+000000000000185c <_fini>:
+    185c:	f3 0f 1e fa          	endbr64
+    1860:	48 83 ec 08          	sub    $0x8,%rsp
+    1864:	48 83 c4 08          	add    $0x8,%rsp
+    1868:	c3                   	ret
